@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyShop.Data;
+using MyShop.Dto;
 using MyShop.Models;
 
 namespace MyShop.Controllers
@@ -119,6 +120,30 @@ namespace MyShop.Controllers
         private bool ProductExists(int id)
         {
             return (_context.Product?.Any(e => e.ProductId == id)).GetValueOrDefault();
+        }
+
+        [HttpPost]
+        [Route("bydate")]
+        public IActionResult GetProductsBetweenDates([FromBody] DateDto dateDto)
+        {
+            var result = from prod in _context.Product
+                         join order in _context.OrderCustomer on prod.ProductId equals order.ProductId
+                         where order.OrderDateTime < dateDto.DateFin && order.OrderDateTime > dateDto.DateDebut
+                         select prod.Description;
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("getbydate/{dateDeb}/{dateFin}")]
+        public IActionResult GetProductsBetweenDates([FromRoute] long dateDeb, long dateFin)
+        {
+            var result = from prod in _context.Product
+                         join order in _context.OrderCustomer on prod.ProductId equals order.ProductId
+                         where order.OrderDateTime < dateFin && order.OrderDateTime > dateDeb
+                         select prod.Description;
+
+            return Ok(result);
         }
     }
 }

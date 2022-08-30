@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zt9QeBfmdXMvGJzbH88DLyQtiV1Mi9IcnqLf/NUckkPyAWGm1YiIg4nA7F8+ghiLrkGXJRsBfE1K0mllHs5QFg==",
+  "dgSpecHash": "MCypGE8J0z4EL3HDHEfqjjw4hAIivEffEI5aKSHSQXs9tKGkY/aF8mOVrA/prkUYH+o+/4UMSobW5mWeYhNciA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Slim HAMMAMI\\source\\repos\\MyShop\\MyShop\\MyShop.csproj",
+  "projectFilePath": "C:\\MyShop\\MyShop\\MyShop\\MyShop\\MyShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Slim HAMMAMI\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Slim HAMMAMI\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

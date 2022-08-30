@@ -9,6 +9,8 @@
         public double InvoicePrice { get; set; }
         public int Quantity { get; set; }
         public int? SubCategoryId { get; set; }
-        public virtual SubCategory? SubCategory { get; set; }
+        public virtual ICollection<Picture>? Pictures { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
+        public virtual ICollection<OrderCustomer>? OrderCustomer { get; set; }
     }
 }

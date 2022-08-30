@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyShop.Data;
 
@@ -11,9 +12,10 @@ using MyShop.Data;
 namespace MyShop.Migrations
 {
     [DbContext(typeof(MyShopContext))]
-    partial class MyShopContextModelSnapshot : ModelSnapshot
+    [Migration("20220830190623_ProductPicOrderC")]
+    partial class ProductPicOrderC
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,24 +60,31 @@ namespace MyShop.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cin")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Picture")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
@@ -91,7 +100,7 @@ namespace MyShop.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<long?>("OrderDateTime")
+                    b.Property<long>("OrderDateTime")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Quantity")
@@ -116,9 +125,10 @@ namespace MyShop.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PictureId"), 1L, 1);
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("DateUpload")
+                    b.Property<long>("DateUpload")
                         .HasColumnType("bigint");
 
                     b.Property<int?>("ProductId")
@@ -195,13 +205,13 @@ namespace MyShop.Migrations
             modelBuilder.Entity("MyShop.Models.OrderCustomer", b =>
                 {
                     b.HasOne("MyShop.Models.Customer", "Customer")
-                        .WithMany("OrderCustomer")
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MyShop.Models.Product", "Product")
-                        .WithMany("OrderCustomer")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -243,15 +253,8 @@ namespace MyShop.Migrations
                     b.Navigation("SubCategories");
                 });
 
-            modelBuilder.Entity("MyShop.Models.Customer", b =>
-                {
-                    b.Navigation("OrderCustomer");
-                });
-
             modelBuilder.Entity("MyShop.Models.Product", b =>
                 {
-                    b.Navigation("OrderCustomer");
-
                     b.Navigation("Pictures");
                 });
 

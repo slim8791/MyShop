@@ -9670,11 +9670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Slim HAMMAMI\\source\\repos\\MyShop\\MyShop\\MyShop.csproj",
+      "projectUniqueName": "C:\\MyShop\\MyShop\\MyShop\\MyShop\\MyShop.csproj",
       "projectName": "MyShop",
-      "projectPath": "C:\\Users\\Slim HAMMAMI\\source\\repos\\MyShop\\MyShop\\MyShop.csproj",
+      "projectPath": "C:\\MyShop\\MyShop\\MyShop\\MyShop\\MyShop.csproj",
       "packagesPath": "C:\\Users\\Slim HAMMAMI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Slim HAMMAMI\\source\\repos\\MyShop\\MyShop\\obj\\",
+      "outputPath": "C:\\MyShop\\MyShop\\MyShop\\MyShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
